@@ -1,0 +1,226 @@
+{
+  "id": "f2de4dad-d9c4-41c4-aa78-e8cb8726a2e4",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.Presentations": {
+      "name": "Presentations",
+      "schema": "",
+      "columns": {
+        "PresentationID": {
+          "name": "PresentationID",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "PresentationName": {
+          "name": "PresentationName",
+          "type": "varchar(25)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "PresentationDescription": {
+          "name": "PresentationDescription",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Created": {
+          "name": "Created",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "Updated": {
+          "name": "Updated",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.Profiles": {
+      "name": "Profiles",
+      "schema": "",
+      "columns": {
+        "ProfileID": {
+          "name": "ProfileID",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "UserID": {
+          "name": "UserID",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "FirstName": {
+          "name": "FirstName",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "LastName": {
+          "name": "LastName",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "PhoneNumber": {
+          "name": "PhoneNumber",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Created": {
+          "name": "Created",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "Updated": {
+          "name": "Updated",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.SquadShooters": {
+      "name": "SquadShooters",
+      "schema": "",
+      "columns": {
+        "SquadID": {
+          "name": "SquadID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ProfileID": {
+          "name": "ProfileID",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Position": {
+          "name": "Position",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Created": {
+          "name": "Created",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "Updated": {
+          "name": "Updated",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "SquadShooters_SquadID_Squads_SquadID_fk": {
+          "name": "SquadShooters_SquadID_Squads_SquadID_fk",
+          "tableFrom": "SquadShooters",
+          "tableTo": "Squads",
+          "columnsFrom": [
+            "SquadID"
+          ],
+          "columnsTo": [
+            "SquadID"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "SquadShooters_ProfileID_Profiles_ProfileID_fk": {
+          "name": "SquadShooters_ProfileID_Profiles_ProfileID_fk",
+          "tableFrom": "SquadShooters",
+          "tableTo": "Profiles",
+          "columnsFrom": [
+            "ProfileID"
+          ],
+          "columnsTo": [
+            "ProfileID"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.Squads": {
+      "name": "Squads",
+      "schema": "",
+      "columns": {
+        "SquadID": {
+          "name": "SquadID",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "Created": {
+          "name": "Created",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "Updated": {
+          "name": "Updated",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
